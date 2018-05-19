@@ -19,10 +19,10 @@
       background-color: #003b5a;
     }
     #el1{
-      margin-right: 150px;
+      margin-right: 100px;
     }
     #el2{
-      margin-right: 217;
+      margin-right: 190;
     }
     nav{
       height: 10%;
@@ -36,10 +36,25 @@
       margin-top: 15px;
     }
     #search{
-      font-size: 16px;
+      font-size: 18px;
       color:white;
-      margin-top: 20px;
+      margin-top: 30px;
+      background-color: #003b5a;
+      border: none;
+      padding-left: -20px;
     }
+    .fa-search{
+      font-size: 18px;
+    }
+    #searchBox{
+      margin-top: 25px;
+      width: 100%;
+      margin-right: -50px;
+      margin-left: 10px;
+      display:none;
+      opacity: 50%;
+    }
+
     #home{
       font-size: 70px;
       vertical-align: middle;
@@ -56,15 +71,17 @@
     }
     hr.style6 {
     	background-color: #fff;
-    	border-top: 2px dotted #003b5a;
+    	border-top: 2px dotted #8fa8b7;
       margin-top: 40px;
       padding-bottom: 30px;
+      opacity: 20%;
     }
     hr.style5 {
     	background-color: #fff;
-    	border-top: 2px dotted #003b5a;
-      width: 5%;
-      align-self: flex-end;
+    	border-top: 2px dotted #8fa8b7;
+      width: 80px;
+      margin-left: 0;
+
     }
     #shot1{
       width:100%;
@@ -76,14 +93,83 @@
 
     .headertext{
       text-align: center;
-      margin-top: 90px;
+      margin-top: -550px;
       color: #003b5a;
       font-size:25px;
     }
     footer{
       height: 7%;
       align: bottom;
-  }
+      margin-top: 50px;
+    }
+    a, a:hover, a:focus {
+    color:#003b5a;
+    text-decoration: none;
+    transition: all 0.3s;
+    }
+    #sidebar{
+      transition: all 0.3s;
+      width: 20%;
+    }
+    #content{
+      margin-top: 80px;
+      color: #003b5a;
+      margin-left: 20px;
+      text-decoration: none;
+    }
+    .fa-facebook-f, .fa-linkedin-in{
+      font-size: 20px;
+      margin-top: 10px;
+    }
+    .wrapper {
+    display: flex;
+    align-items: stretch;
+    }
+
+    #sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+
+
+    }
+    button{
+      outline-color: #ffff;
+    }
+
+
+    #sidebarCollapse{
+      background-color: #ffff;
+      color: #003b5a;
+      border: none;
+      outline-style: none;
+      margin-top: 320px;
+      margin-left: -135px;
+
+    }
+
+
+    #sidebar.active {
+        margin-left: -110px;
+          outline-style: none;
+    }
+    a[data-toggle="collapse"] {
+    position: relative;
+    }
+
+    a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
+        content: '\e259';
+        display: block;
+        position: absolute;
+        right: 20px;
+        font-family: 'Glyphicons Halflings';
+        font-size: 0.6em;
+    }
+
+    a[aria-expanded="true"]::before {
+        content: '\e260';
+    }
+
   </style>
 </head>
 
@@ -106,14 +192,17 @@
         <a class="nav-link" href="#" id="el2">Kontakt</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" id="search"><i class="fas fa-search"></i></a>
+          <input type="text" placeholder="Search" id="searchBox">
+        </li>
+        <li class="nav-item">
+          <button type="button" id="search"><i class="fas fa-search"></i></button>
         </li>
       </ul>
     </nav>
     <div class="wrapper">
 
      <nav id="sidebar">
-       <ul class="list-unstyled components">
+       <ul class="list-unstyled components" id="content">
          <li class="active"><a href="#">Menu</a></li>
          <hr class="style5">
          <li><a href="#">Aktualności</a></li>
@@ -128,14 +217,24 @@
          <li><a href="#">Relacje<br>inwestorskie</br></a></li>
          <li><a href="#">Partnerzy</a></li>
          <li><a href="#">Kariera</a></li>
+         <hr class="style5">
+         <li><a href="#"><i class="fab fa-facebook-f"></i><a></li>
+         <li></li>
+         <li><a href="#"><i class="fab fa-linkedin-in"></i><a></li>
+         </ul>
      </nav>
+     <div id="btns">
+       <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+         <i class="fas fa-angle-left"></i><br>menu</br>
+       </button>
+     </div>
    </div>
     <div class="container" >
     <h2 class="headertext"><i class="fa fa-home" id="home"></i>O FIRMIE</h2>
     <hr class="style6">
     <p id="prepic">SIMPLE - z nami biznes jest prostszy!</p>
     <br></br>
-    <div class="row" id="content">
+    <div class="row">
       <div class="col-lg-6" id="kol1">
         <img src="shot1.jpg" id="shot1">
         <p class="text-justify">PONAD 24 LATA DOŚWIADCZENIA
@@ -197,12 +296,43 @@
 
    <footer class="page-footer bg-company-blue" id="footer">
    </footer>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
      integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
      integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+     <script>
+     $(document).ready(function(){
+
+      $("#search").click(function(){
+        $("#searchBox").toggle();
+      });
+    });
+    </script>
+    <script>
+        $( document ).ready(function() {
+          $("#sidebar").toggleClass("toggle");
+        });
+    </script>
+    <script>
+       $(document).ready(function() {
+
+         $('#sidebarCollapse').on('click', function (){
+           $('#sidebar').toggleClass('active');
+         });
+
+       });
+    </script>
+    <script>
+    $('#sidebarCollapse').click(function(){
+        $(this).find('i').toggleClass('fas fa-angle-right').toggleClass('fas fa-angle-left');
+
+      });
+      </script>
+
 
 </body>
 
