@@ -18,11 +18,9 @@
     .bg-company-blue{
       background-color: #003b5a;
     }
-    #el1{
-      margin-right: 100px;
-    }
+
     #el2{
-      margin-right: 190;
+      margin-right: 90px;
     }
     nav{
       height: 10%;
@@ -30,10 +28,18 @@
     .nav-item{
       margin-right: 15px;
     }
+    .navbar-brand{
+      background-color: #ffff;
+      height: 150px;
+      margin-left: 260px;
+      margin-top: 80px;
+      box-shadow: 1px 1px 5px #e4e4e4;
+    }
     .navbar-right li a{
       color:white;
       font-size: 14px;
       margin-top: 15px;
+      margin-right: 25px;
     }
     #search{
       font-size: 18px;
@@ -42,17 +48,20 @@
       background-color: #003b5a;
       border: none;
       padding-left: -20px;
+      outline: none;
     }
     .fa-search{
       font-size: 18px;
     }
     #searchBox{
       margin-top: 25px;
-      width: 100%;
-      margin-right: -50px;
+      width: 100px;
+      margin-right: -15px;
       margin-left: 10px;
-      display:none;
+      visibility: hidden;
       opacity: 50%;
+      padding-right: 10px;
+      outline: none;
     }
 
     #home{
@@ -65,6 +74,7 @@
       text-align: left;
       width: 60%;
       color: #003b5a;
+      margin-top: -106%;
     }
     #content{
       padding-bottom: 40px;
@@ -107,34 +117,32 @@
     text-decoration: none;
     transition: all 0.3s;
     }
-    #sidebar{
-      transition: all 0.3s;
-      width: 20%;
-    }
+
     #content{
       margin-top: 80px;
       color: #003b5a;
       margin-left: 20px;
       text-decoration: none;
     }
+
     .fa-facebook-f, .fa-linkedin-in{
       font-size: 20px;
       margin-top: 10px;
     }
+
     .wrapper {
     display: flex;
     align-items: stretch;
     }
 
     #sidebar {
-    min-width: 250px;
-    max-width: 250px;
-    min-height: 100vh;
+    transition: all 0.3s;
+    width: 20%;
+    height: 232%;
+    max-width: 180px;
+    margin-left: -110px;
+    box-shadow: 5px 0px 5px #e4e4e4;
 
-
-    }
-    button{
-      outline-color: #ffff;
     }
 
 
@@ -144,14 +152,20 @@
       border: none;
       outline-style: none;
       margin-top: 320px;
-      margin-left: -135px;
+      margin-left: -70px;
+      outline: none;
+      box-shadow: none;
 
+    }
+
+    #sidebarCollapseText {
+      display: block;
     }
 
 
     #sidebar.active {
-        margin-left: -110px;
-          outline-style: none;
+        margin-left: 0;
+          outline: none;
     }
     a[data-toggle="collapse"] {
     position: relative;
@@ -170,14 +184,16 @@
         content: '\e260';
     }
 
+
   </style>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg bg-company-blue ">
+      <img class="navbar-brand" src="logo simple.png" alt="Simple">
       <ul class="navbar-nav navbar-right ml-auto ">
         <li class="nav-item">
-        <a class="nav-link" href="#" id="el1">Aktualności</a>
+        <a class="nav-link" href="#">Aktualności</a>
         </li>
         <li class="nav-item">
         <a class="nav-link" href="#">Produkty</a>
@@ -225,7 +241,7 @@
      </nav>
      <div id="btns">
        <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-         <i class="fas fa-angle-left"></i><br>menu</br>
+         <i class="fas fa-angle-right"></i><span id="sidebarCollapseText">menu</span>
        </button>
      </div>
    </div>
@@ -308,7 +324,11 @@
      $(document).ready(function(){
 
       $("#search").click(function(){
-        $("#searchBox").toggle();
+        if($("#searchBox").css('visibility') === 'hidden') {
+          $("#searchBox").css('visibility', 'visible')
+        } else {
+          $("#searchBox").css('visibility', 'hidden')
+        }
       });
     });
     </script>
@@ -322,6 +342,11 @@
 
          $('#sidebarCollapse').on('click', function (){
            $('#sidebar').toggleClass('active');
+           if($('#sidebar').hasClass('active')) {
+             $('#sidebarCollapseText').text('')
+           } else {
+            $('#sidebarCollapseText').text('menu')
+           }
          });
 
        });
@@ -331,9 +356,7 @@
         $(this).find('i').toggleClass('fas fa-angle-right').toggleClass('fas fa-angle-left');
 
       });
-      </script>
-
-
+    </script>
 </body>
 
 </html>
