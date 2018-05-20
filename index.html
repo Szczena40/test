@@ -72,9 +72,7 @@
 
     .container{
       text-align: left;
-      width: 60%;
       color: #003b5a;
-      margin-top: -106%;
     }
     #content{
       padding-bottom: 40px;
@@ -103,7 +101,7 @@
 
     .headertext{
       text-align: center;
-      margin-top: -550px;
+      margin-top: 150px;
       color: #003b5a;
       font-size:25px;
     }
@@ -137,9 +135,8 @@
 
     #sidebar {
     transition: all 0.3s;
-    width: 20%;
-    height: 232%;
-    max-width: 180px;
+    width: 200px;
+    height: 100%;
     margin-left: -110px;
     box-shadow: 5px 0px 5px #e4e4e4;
 
@@ -184,6 +181,11 @@
         content: '\e260';
     }
 
+    main {
+      display: grid;
+      grid-template-columns: 20% 60% 20%;
+    }
+
 
   </style>
 </head>
@@ -215,6 +217,7 @@
         </li>
       </ul>
     </nav>
+    <main>
     <div class="wrapper">
 
      <nav id="sidebar">
@@ -234,9 +237,9 @@
          <li><a href="#">Partnerzy</a></li>
          <li><a href="#">Kariera</a></li>
          <hr class="style5">
-         <li><a href="#"><i class="fab fa-facebook-f"></i><a></li>
+         <li><a href="#"><i class="fab fa-facebook-f"></i><a></a></li>
          <li></li>
-         <li><a href="#"><i class="fab fa-linkedin-in"></i><a></li>
+         <li><a href="#"><i class="fab fa-linkedin-in"></i><a></a></li>
          </ul>
      </nav>
      <div id="btns">
@@ -310,6 +313,7 @@
     </div>
    </div>
 
+  </main>
    <footer class="page-footer bg-company-blue" id="footer">
    </footer>
 
